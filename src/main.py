@@ -73,7 +73,7 @@ async def cb_start(callback: CallbackQuery, state: FSMContext):
 async def answer1(message: Message, state: FSMContext):
     data = await state.get_data()
     ans = data.get("answers", [])
-    ans.append(f"{QUESTION_1}: {message.text}.")
+    ans.append(message.text)
     await state.update_data(answers=ans)
     await state.set_state(OrderAdd.question_2)
     await message.answer(QUESTION_2)
@@ -82,7 +82,7 @@ async def answer1(message: Message, state: FSMContext):
 async def answer2(message: Message, state: FSMContext):
     data = await state.get_data()
     ans = data.get("answers", [])
-    ans.append(f"{QUESTION_2}: {message.text}.")
+    ans.append(message.text)
     await state.update_data(answers=ans)
     await state.set_state(OrderAdd.question_3)
     await message.answer(QUESTION_3)
@@ -91,7 +91,7 @@ async def answer2(message: Message, state: FSMContext):
 async def answer3(message: Message, state: FSMContext):
     data = await state.get_data()
     ans = data.get("answers", [])
-    ans.append(f"{QUESTION_3}: {message.text}.")
+    ans.append(message.text)
     await state.update_data(answers=ans)
     await state.set_state(OrderAdd.question_4)
     await message.answer(QUESTION_4)
@@ -100,7 +100,7 @@ async def answer3(message: Message, state: FSMContext):
 async def answer4(message: Message, state: FSMContext):
     data = await state.get_data()
     ans = data.get("answers", [])
-    ans.append(f"{QUESTION_4}: {message.text}.")
+    ans.append(message.text)
     await state.update_data(answers=ans)
     await state.set_state(OrderAdd.question_5)
     await message.answer(QUESTION_5)
@@ -109,7 +109,7 @@ async def answer4(message: Message, state: FSMContext):
 async def answer5(message: Message, state: FSMContext):
     data = await state.get_data()
     ans = data.get("answers", [])
-    ans.append(f"{QUESTION_5}: {message.text}.")
+    ans.append(message.text)
     # print(" ".join(ans))
     desripton = generate_text(text=(". ".join(ans)), prompt=PROMPT)
     await state.clear()
