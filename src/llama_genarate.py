@@ -16,8 +16,8 @@ def generate_text(text: str, prompt: str):
     )
     # print(f"{prompt}:\n{text}")
     output = llm.create_completion(
-        prompt=f"{prompt}:\n{text}. Анкета: ",
-        max_tokens=300,
+        prompt=f"Ответы пользователя:\n{text}:\n{prompt}",
+        max_tokens=150,
         temperature=0.7,
         echo=False,
         stream=False
